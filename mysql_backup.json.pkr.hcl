@@ -28,7 +28,7 @@ variable "aws_source_ami" {
 
 variable "s3_backup_bucket" {
     type = string
-    default = "<your S3 bucket>"  # your S3 bucket (set this) 
+    default = "assignment-8-bucket-xiaole"  # your S3 bucket (set this) 
 }
 
 variable "mysql_user" {
@@ -58,9 +58,9 @@ source "amazon-ebs" "mysql_ubuntu" {
   instance_type = "${var.aws_instance_type}"
   source_ami    = "${var.aws_source_ami}"
   ssh_username  = "ubuntu"
-  vpc_id        = "<your vpc>"  # vpc required for non-default
-  subnet_id     = "subnet-<your subnet>" 
-  security_group_ids = ["sg-<your security group>"]  
+  vpc_id        = "vpc-0d899d2c3d9eb482f"  # vpc required for non-default
+  subnet_id     = "subnet-09a45aacb60195600" 
+  security_group_ids = ["sg-0ef505b584420ddc0", "sg-0caec8950a52fb90f", "sg-0aeeba779dec4e250"]  
   associate_public_ip_address = true  # assign a public ip address, overrides default
   tags = {
     Environment = "Dev"
